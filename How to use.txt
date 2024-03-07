@@ -1,0 +1,19 @@
+Step 1:
+ Make Sure The System has Nodejs latest version
+or download LTS Version
+
+Download link : https://nodejs.org/en/download/
+
+Step 2 :
+
+direct to the folder 
+
+
+eg:- cd score
+
+and type the comand npm run dev
+
+
+step 3 open browser 
+
+the app will be running in localhost:5173
