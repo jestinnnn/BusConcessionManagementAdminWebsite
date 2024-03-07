@@ -18,16 +18,16 @@ const Table = ({ request, approved, reject }) => {
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-6 py-3">
-              Product name
+             Name
             </th>
             <th scope="col" className="px-6 py-3">
-              Color
+              College
             </th>
             <th scope="col" className="px-6 py-3">
-              Category
+              From
             </th>
             <th scope="col" className="px-6 py-3">
-              Price
+             To
             </th>
             <th scope="col" className="px-6 py-3">
               Action
@@ -41,7 +41,7 @@ const Table = ({ request, approved, reject }) => {
             (request || approved || reject).map((data, index) => (
               <tr
                 key={index}
-                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                className="bg-white uppercase border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
               >
                 <th
                   scope="row"
