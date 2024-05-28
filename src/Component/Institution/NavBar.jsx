@@ -9,8 +9,7 @@ const NavBar = () => {
     
     useEffect(() => {
       const institutionname = localStorage.getItem('institutionname');
-      console.log('Institution Name:', institutionname);
-      setInstitute(institutionname);
+      
   }, []);
   
 
@@ -31,64 +30,56 @@ const NavBar = () => {
     };
 
     const navItems = [
-        { path: '/institute/home', title: 'Home' },
+  
         { path: '/institute/request', title: 'Request' },
         { path: '/institute/approved', title: 'Approved' },
         { path: '/institute/rejected', title: 'Rejected' },
     ];
 
     return (
-        <nav className="bg-white shadow w-full z-10 top-0 border-b border-gray-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-                <div className="flex items-center space-x-3">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/busapp-6cd14.appspot.com/o/logo%2F12.png?alt=media&token=a0adc527-32e6-443b-a65a-6577b095d7e1" className="h-8 w-auto" alt="Logo" />
-                    <span className="text-xl font-bold text-[#0F6CC7] hidden md:block">Institute</span>
-                </div>
-                <div className="flex items-center">
-                    <div className="hidden md:block">
-                        <div className="ml-10 flex items-baseline space-x-4">
-                            {navItems.map(({ path, title }) => (
-                                <NavLink key={path} to={path} className={({ isActive }) => isActive ? "text-[#0F6CC7] px-3 py-2 rounded-md text-sm font-medium" : "text-gray-600 hover:text-[#0F6CC7] px-3 py-2 rounded-md text-sm font-medium"}>
-                                    {title}
-                                </NavLink>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <div className="ml-3 relative">
-                    <button onClick={toggleProfile} className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:shadow-solid">
-                        <img className="h-8 w-8 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQy1CZEAA4XlT6Jz25XHAqUly_XHAi7C0mvvchv8uxHDmcWdqo5BZMZu6FCyB_eehUQo&usqp=CAU" alt="" />
-                        
-                    </button>
-                    {/* Profile dropdown */}
-                    <div className={`origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 ${isProfileOpen ? '' : 'hidden'}`} role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
-                        <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Logout</button>
-                    </div>
-                </div>
-                {/* Mobile menu button */}
-                <div className="-mr-2 flex md:hidden">
-                    <button onClick={toggleMenu} className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500">
-                        {/* Icon for menu open */}
-                        <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+        <nav className="bg-white   w-full z-20 top-0 start-0 border-b border-gray-200">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="https://firebasestorage.googleapis.com/v0/b/busapp-6cd14.appspot.com/o/logo%2F12.png?alt=media&token=a0adc527-32e6-443b-a65a-6577b095d7e1" 
+        className="h-12 w-full  border rounded-full items-center" alt="Ride Right Logo" />
+        <span className="self-center text-2xl font-bold text-[#0F6CC7] ">Institute</span>
+      </a>
+        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <button onClick={toggleProfile} type="button" className="w-9 h-10 border rounded-full ">
+            <img
+              className='w-full h-full'
+              src="https://firebasestorage.googleapis.com/v0/b/busapp-6cd14.appspot.com/o/logo%2FLogo_of_University_of_Kerala.png?alt=media&token=ec9e77b0-5b5c-4c6a-919b-451867dc381c" />
+          </button>
+          {/* Profile Icon */}
+          <div className="relative">
+            <button onClick={toggleMenu} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none " aria-controls="navbar-sticky" aria-expanded={isMenuOpen ? "true" : "false"}>
+              <span className="sr-only">Open main menu</span>
 
-            {/* Mobile menu */}
-            <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    {navItems.map(({ path, title }) => (
-                        <NavLink key={path} to={path} className={({ isActive }) => isActive ? "bg-[#0F6CC7] text-white block px-3 py-2 rounded-md text-base font-medium" : "text-gray-600 hover:bg-gray-50 hover:text-[#0F6CC7] block px-3 py-2 rounded-md text-base font-medium"}>
-                            {title}
-                        </NavLink>
-                    ))}
-                </div>
+              <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
+              </svg>
+            </button>
+            {/* Profile Dropdown */}
+            <div className={`absolute top-full right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${isProfileOpen ? '' : 'hidden'}`}>
+              <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                <button className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900' onClick={handleLogout}>Logout</button>
+              </div>
             </div>
-        </nav>
+          </div>
+        </div>
+        <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isMenuOpen ? '' : 'hidden'}`} id="navbar-sticky">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-semibold border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
+            {navItems.map(({ path, title }) => (
+              <li key={path} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0  ">
+                <NavLink to={path} className={({ isActive }) => isActive ? "active text-blue-600" : ""}>
+                  {title}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </nav>
     );
 }
 

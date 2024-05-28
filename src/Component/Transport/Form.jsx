@@ -61,7 +61,6 @@ function Form({ data, togglePopup, request, approve }) {
           status: "pending",
           message: "Information Incorrect Reapply",
         });
-        console.log("Rejected")
         togglePopup()
       } catch (error) {
         console.error('Error updating document: ', error);
@@ -71,12 +70,12 @@ function Form({ data, togglePopup, request, approve }) {
     return (
         <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-gray-500 bg-opacity-50">
             <div className="relative p-4 w-full max-w-2xl h-auto" style={{ minWidth: '50vw' }}>
-                <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div className="relative bg-white rounded-lg shadow">
                     <div className="flex items-start justify-between p-4 border-b rounded-t">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                        <h3 className="text-xl font-semibold text-gray-900 ">
                             Profile
                         </h3>
-                        <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" onClick={togglePopup}>
+                        <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" onClick={togglePopup}>
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                             <span className="sr-only">Close modal</span>
                         </button>
@@ -85,12 +84,12 @@ function Form({ data, togglePopup, request, approve }) {
                         {/* 1st row */}
                         <div className='grid grid-cols-2 gap-5'>
                             <div className="mb-4">
-                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Type product name" required />
+                                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 ">Name</label>
+                                <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Type product name" required />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="institution" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Institute</label>
-                                <input type="text" name="institution" id="institution" value={formData.institution} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Type institute name" required />
+                                <label htmlFor="institution" className="block mb-2 text-sm font-medium text-gray-900 ">Institute</label>
+                                <input type="text" name="institution" id="institution" value={formData.institution} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Type institute name" required />
                             </div>
                         </div>
                         {/* 2nd row */}
@@ -100,28 +99,28 @@ function Form({ data, togglePopup, request, approve }) {
                             </div>
                             <div className='flex flex-col w-[48%]'>
                                 <div className="mb-4">
-                                    <label htmlFor="boardinglocation" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">From</label>
-                                    <input type="text" name="boardinglocation" id="boardinglocation" value={formData.boardinglocation} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Type boarding location" required />
+                                    <label htmlFor="boardinglocation" className="block mb-2 text-sm font-medium text-gray-900">From</label>
+                                    <input type="text" name="boardinglocation" id="boardinglocation" value={formData.boardinglocation} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Type boarding location" required />
                                 </div>
                                 <div className="mb-4">
-                                    <label htmlFor="collegebusstoplocation" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">To</label>
-                                    <input type="text" name="collegebusstoplocation" id="collegebusstoplocation" value={formData.collegebusstoplocation} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Type college bus stop location" required />
+                                    <label htmlFor="collegebusstoplocation" className="block mb-2 text-sm font-medium text-gray-900 ">To</label>
+                                    <input type="text" name="collegebusstoplocation" id="collegebusstoplocation" value={formData.collegebusstoplocation} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Type college bus stop location" required />
                                 </div>
                                 <div className="mb-4">
-                                    <label htmlFor="durationofcourse" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Duration</label>
-                                    <input type="text" name="durationofcourse" id="durationofcourse" value={formData.durationofcourse} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Type course duration" required />
+                                    <label htmlFor="durationofcourse" className="block mb-2 text-sm font-medium text-gray-900">Course Duration</label>
+                                    <input type="text" name="durationofcourse" id="durationofcourse" value={formData.durationofcourse} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Type course duration" required />
                                 </div>
                             </div>
                         </div>
                         {/* 3 rd row */}
                         <div className='grid grid-cols-2 gap-5'>
                             <div className="mb-4">
-                                <label htmlFor="status" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                                <input type="text" name="status" id="status" value={formData.status} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Type course duration" required />
+                                <label htmlFor="status" className="block mb-2 text-sm font-medium text-gray-900">Status</label>
+                                <input type="text" name="status" id="status" value={formData.status} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Type course duration" required />
                             </div>
                             <div className="mb-4">
-                                <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount to be paid &#x20B9;</label>
-                                <input type="number" name="price" id="price" value={formData.price} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Type course duration" required />
+                                <label htmlFor="price" className="block mb-2 text-sm font-medium text-gray-900">Amount to be paid &#x20B9;</label>
+                                <input type="number" name="price" id="price" value={formData.price} onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Type course duration" required />
                             </div>
                         </div>
                         {/* Conditional rendering based on the length of request and approve */}
@@ -143,7 +142,7 @@ function Form({ data, togglePopup, request, approve }) {
                         {approve && (
                             <button
                                 onClick={togglePopup}
-                                type="close" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                type="close" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">
                                 Close
                             </button>
                         )}

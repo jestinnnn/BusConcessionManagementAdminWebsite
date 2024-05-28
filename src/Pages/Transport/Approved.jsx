@@ -21,7 +21,6 @@ const Approved = () => {
             
            
             setApproved(approvedRequests);
-            console.log(approvedRequests)
           } catch (error) {
             console.error("Error fetching data:", error);
           }

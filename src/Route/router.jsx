@@ -1,11 +1,8 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import Request from "../Pages/Transport/Request";
 import Transport from "../App/Transport";
 import Approved from "../Pages/Transport/Approved";
-import Home from "../Pages/Transport/Home";
-import Form from "../Component/Transport/Form";
 import Institute from "../App/Institute";
-import InstHome from "../Pages/Institute/InstHome";
 import InstRequest from "../Pages/Institute/InstRequest";
 import InstApproved from "../Pages/Institute/InstApproved";
 import InstReject from "../Pages/Institute/InstReject";
@@ -13,10 +10,16 @@ import Compliant from "../Pages/Transport/Compliant";
 import Login from "../Pages/Login";
 import InstituteProtect from "../Secure/InstituteProtect";
 import TransportProtect from "../Secure/TransportProtect";
+import Navigate from "../Component/Navigate";
+import Payments from "../Pages/Transport/Payments";
 
 const router = createBrowserRouter([
   {
-    path:'/login',
+    path:'/',
+    element:<Navigate/>
+  },
+  {
+    path:'login',
     element:<Login/>
   },
   {
@@ -28,10 +31,6 @@ const router = createBrowserRouter([
         element:<Transport/>,
         children:[
           {
-            path: "home",
-            element: <Home />,
-          },
-          {
             path: "request",
             element: <Request />,
           },
@@ -41,6 +40,9 @@ const router = createBrowserRouter([
           },{
             path:"compliants",
             element:<Compliant/>
+          },{
+            path:'payments',
+            element:<Payments/>
           }
         ],
       }
@@ -54,10 +56,6 @@ const router = createBrowserRouter([
         path:"",
         element:<Institute/>,
         children:[
-          {
-            path:'home',
-            element:<InstHome/>
-          },
           {
             path:'request',
             element:<InstRequest/>

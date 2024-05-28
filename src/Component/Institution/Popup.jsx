@@ -58,7 +58,7 @@ function Popup({ data, request, approve, togglePopup, rejected }) {
 
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto">
-      <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center">
         <div className="fixed inset-0 transition-opacity" aria-hidden="true">
           <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
         </div>
@@ -88,23 +88,27 @@ function Popup({ data, request, approve, togglePopup, rejected }) {
                       />
                     </td>
                   </tr>
-                  {/* Other table rows */}
+                  <div className='px-1'>
                   <tr className='uppercase'>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">From:<br /> {data.boardinglocation}</div>
+                    <td className="px-6 py-5 whitespace-nowrap">
+                      <div className="text-sm text-gray-900">From:</div>
+                      <div className="font-semibold">{data.boardinglocation}</div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">To:<br /> {data.collegebusstoplocation}</div>
+                    <td className="px-1 mx-2 py-4 whitespace-nowrap ">
+                      <div className="text-sm text-gray-900">To:</div>
+                      <div className="font-semibold">{data.collegebusstoplocation}</div>
                     </td>
                   </tr>
+                  </div>
+                  
                   <tr>
                     <td className='px-6 py-4 whitespace-nowrap'>
                       <span>Institute Name</span>
-                      <p className='font-semibold'>{data.institution}</p>
+                      <p className='font-semibold'>{data.institution.toUpperCase()}</p>
                     </td>
                     <td className='px-6 py-4 whitespace-nowrap'>
                       <span>Course</span>
-                      <p className='font-semibold text-sm'>{data.course}</p>
+                      <p className='font-semibold text-sm'>{data.course.toUpperCase()}</p>
                     </td>
                   </tr>
                   <tr>
@@ -124,6 +128,7 @@ function Popup({ data, request, approve, togglePopup, rejected }) {
                       </div>
                     </td>
                   </tr>
+                  <div className='px-1'>
                   <tr>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">Application Date: <br />
@@ -135,11 +140,13 @@ function Popup({ data, request, approve, togglePopup, rejected }) {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">Status<br />
                         <span className='text-md font-semibold'>
-                          {data.status}
+                          {data.status.toUpperCase()}
                         </span>
                       </div>
                     </td>
                   </tr>
+                  </div>
+                 
                 </tbody>
               </table>
             </div>

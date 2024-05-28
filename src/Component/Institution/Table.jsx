@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Popup from './Popup';
+import { LuRefreshCcw } from "react-icons/lu";
 
 const Table = ({ request, approved, reject }) => {
   const [popupData, setPopupData] = useState(null);
@@ -8,14 +9,30 @@ const Table = ({ request, approved, reject }) => {
     setPopupData(data);
   };
 
+  const toggleRefresh = () => {
+    window.location.reload();
+  };
+
   const closePopup = () => {
     setPopupData(null);
   };
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div>
+          <button
+            onClick={toggleRefresh}
+            id="dropdownRadioButton"
+            data-dropdown-toggle="dropdownRadio"
+            className="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5"
+            type="button"
+          >
+            <LuRefreshCcw />
+          </button>
+      
+        </div>
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
           <tr>
             <th scope="col" className="px-6 py-3">
              Name
@@ -41,11 +58,11 @@ const Table = ({ request, approved, reject }) => {
             (request || approved || reject).map((data, index) => (
               <tr
                 key={index}
-                className="bg-white uppercase border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                className="bg-white uppercase border-b  hover:bg-gray-50"
               >
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
                 >
                   {data.name}
                 </th>

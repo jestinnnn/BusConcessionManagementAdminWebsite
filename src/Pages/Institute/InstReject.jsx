@@ -6,7 +6,7 @@ import { getDocs, collection } from 'firebase/firestore';
 const InstReject = () => {
   const [reject, setReject] = useState([]);
   const institutionname = localStorage.getItem('institutionname');
-  
+  console.log(institutionname)
   useEffect(() => {
     const requestlist = async () => {
       try {

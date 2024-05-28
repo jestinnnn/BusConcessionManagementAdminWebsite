@@ -28,14 +28,14 @@ const Compliant = () => {
       <h1 className='text-3xl font-bold mb-8 text-center'>Complaints</h1>
       <div className='grid grid-cols-2 gap-5 mt-5'>
         {complaints.map(complaint => (
-          <div key={complaint.id} className='bg-white dark:bg-gray-800 shadow-md rounded-md p-6'>
+          <div key={complaint.id} className='bg-white shadow-md rounded-md p-6'>
             <div className='mb-4'>
               <h2 className='text-lg font-semibold mb-2'>Title:</h2>
-              <p className='text-gray-700 dark:text-gray-300'>{complaint.title}</p>
+              <p className='text-gray-700 '>{complaint.title}</p>
             </div>
             <div className='mb-4 md:flex md:flex-row  gap-5 items-center'>
               <h2 className='text-lg font-semibold mb-2'>Message:</h2>
-              <p className='text-gray-700 dark:text-gray-300'>{complaint.body}</p>
+              <p className='text-gray-700'>{complaint.body}</p>
             </div>
           </div>
         ))}
